@@ -1,0 +1,81 @@
+
+    public class PaymentDemo extends javax.swing.JFrame {
+
+        public PaymentDemo() {
+            initComponents();
+            Browser browser = new Browser();
+            BrowserView view = new BrowserView(browser);
+            add(view, BorderLayout.CENTER);
+            view.setBounds(0, 0, 500, 500);
+
+            setSize(1000, 1000);
+            setVisible(true);
+            amount = amount * 100;
+            browser.loadHTML("<!DOCTYPE html>\n"
+                    + "<html>\n"
+                    + "    <head>\n"
+                    + "        <title>TODO supply a title</title>\n"
+                    + "        <meta charset=\"UTF-8\">\n"
+                    + "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n"
+                    + "    </head>\n"
+                    + "    <body>\n"
+                    + "\n"
+                    + "        <h1>VMM Payment Gateway Demo</h1>\n"
+                    + "\n"
+                    + "        <form action=\"\" method=\"POST\">\n"
+                    + "            <!-- Note that the amount is in paise = 50 INR -->\n"
+                    + "            <script\n"
+                    + "                src=\"https://checkout.razorpay.com/v1/checkout.js\"\n"
+                    + "                data-key=\"rzp_test_96HeaVmgRvbrfT\"\n"
+                    + "                data-amount=\"" + amount + "\"\n"
+                    + "                data-buttontext=\"Pay with Razorpay\"\n"
+                    + "                data-name=\"VMM Education\"\n"
+                    + "                data-description=\"Thank You for purchaing Silver Package.\"\n"
+                    + "                data-image=\"http://vmmeducation.com/images/newlogo.png\"\n"
+                    + "                data-prefill.name=\"Amrinder Singh\"\n"
+                    + "                data-prefill.email=\"amrinder@vmmeducation.com\"\n"
+                    + "                data-theme.color=\"#F3EE54\"\n"
+                    + "            ></script>\n"
+                    + "            <input type=\"hidden\" value=\"Hidden Element\" name=\"hidden\">\n"
+                    + "        </form>\n"
+                    + "\n"
+                    + "   <h1>Please close the page to proceed</h1> </body>\n"
+                    + "</html>\n"
+                    + "");
+
+        }
+
+        @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+    private void initComponents() {
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosing(java.awt.event.WindowEvent evt) {
+                formWindowClosing(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        pack();
+    }// </editor-fold>                        
+
+    private void formWindowClosing(java.awt.event.WindowEvent evt) {                                   
+        new Thread(new job_vid()).start();
+
+    }                                  
+
+        /**
+         * @param args the command line arguments
+         */
+    }
